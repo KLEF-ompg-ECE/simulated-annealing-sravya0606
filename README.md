@@ -89,19 +89,19 @@ Save plots as `experiment_2a.png`, `experiment_2b.png`, `experiment_2c.png`.
 
 | cooling_rate | Final clashes | Iterations completed | Reached 0 clashes? |
 |-------------|---------------|----------------------|--------------------|
-| 0.80        |             |                      |                    |
-| 0.95        |             |                      |                    |
-| 0.995       |            |                      |                    |
+| 0.80        |      8       |          31            |        No            |
+| 0.95        |      3        |         135            |        No            |
+| 0.995       |      3      |             1379         |         No           |
 
 **Compare the three plots. What do you notice about how fast vs slow cooling affects the result? (3–4 sentences)**  
 *Hint: Fast cooling = temperature drops quickly. Does it have time to explore well?*
 ```
-[ YOUR OBSERVATION ]
+The cooling rate affects how quickly the temperature decreases and how much the algorithm explores possible solutions. With a fast cooling rate like 0.80, the temperature drops quickly, so the algorithm stops exploring early and results in more clashes. With 0.95, the algorithm runs longer and finds a better solution with fewer clashes. The slowest cooling rate 0.995 allows the algorithm to explore the most solutions, resulting in a better timetable though it takes more iterations.
 ```
 
 **Which cooling_rate gave the best result? Why do you think that is?**
 ```
-[ YOUR ANSWER ]
+The cooling rate 0.995 gave the best result because the temperature decreases slowly, allowing the algorithm more time to explore different timetable configurations and avoid getting stuck in poor solutions.
 ```
 
 ---
@@ -112,12 +112,12 @@ Save plots as `experiment_2a.png`, `experiment_2b.png`, `experiment_2c.png`.
 
 | Experiment | Key setting | Final clashes | Main finding in one sentence |
 |------------|-------------|---------------|------------------------------|
-| 1 — Baseline | cooling_rate = 0.995 | | |
-| 2 — Cooling rate | cooling_rate = ___ | | |
+| 1 — Baseline | cooling_rate = 0.995 |3   |The algorithm gradually reduced clashes but did not reach a perfect timetable. |
+| 2 — Cooling rate | cooling_rate = 0.995 | 3|Slower cooling allows the algorithm to explore more solutions and produce better results.|
 
 **In your own words — what is the most important thing you learned about Simulated Annealing from these experiments? (3–5 sentences)**
 ```
-[ YOUR REFLECTION ]
+Simulated Annealing gradually improves a solution by exploring many neighboring possibilities. The temperature controls how much the algorithm explores different solutions. A slower cooling rate allows more exploration and usually gives better results. Accepting slightly worse solutions sometimes helps the algorithm escape local optima and find a better overall timetable.
 ```
 
 ---
