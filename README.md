@@ -1,9 +1,9 @@
 # Assignment 1 — Simulated Annealing: Exam Timetable Scheduling
 ## Observation Report
 
-**Student Name  :** ___________________________  
-**Student ID    :** ___________________________  
-**Date Submitted:** ___________________________  
+**Student Name  :** M. Lakshmi Sravya  
+**Student ID    :** 2310040032  
+**Date Submitted:** 10-03-26  
 
 ---
 
@@ -23,13 +23,13 @@ Open `sa_timetable.py` and read through it. Then answer these questions.
 **Q1. What does `count_clashes()` measure? What value means a perfect timetable?**
 
 ```
-[ YOUR ANSWER — 2 to 3 sentences ]
+count_clashes() calculates the number of conflicts in the generated timetable such as room or teacher clashes. It evaluates how good the timetable is. A value of 0 means a perfect timetable with no conflicts.
 ```
 
 **Q2. What does `generate_neighbor()` do? How is the new timetable different from the current one?**
 
 ```
-[ YOUR ANSWER — 2 to 3 sentences ]
+generate_neighbor() creates a new timetable by making a small change to the current timetable, such as swapping two class slots. This helps explore different possible schedules. The new timetable is slightly different from the current one.
 ```
 
 **Q3. In `run_sa()`, there is this line:**
@@ -39,7 +39,7 @@ if delta < 0 or random.random() < math.exp(-delta / T):
 **What does this line decide? Why does SA sometimes accept a worse solution?**
 
 ```
-[ YOUR ANSWER — 2 to 3 sentences ]
+This condition decides whether the new timetable should replace the current one. If the new solution is better (delta < 0) it is always accepted. Sometimes worse solutions are accepted with a probability to help the algorithm escape local minima and explore better solutions.
 ```
 
 ---
@@ -55,20 +55,26 @@ python sa_timetable.py
 
 | Metric | Your result |
 |--------|-------------|
-| Number of iterations completed | |
-| Clashes at iteration 1 | |
-| Final best clashes | |
-| Did SA reach 0 clashes? (Yes / No) | |
+| Number of iterations completed |1379 |
+| Clashes at iteration 1 |12 |
+| Final best clashes |3 |
+| Did SA reach 0 clashes? (Yes / No) |No |
 
 **Copy the printed timetable output here:**
 ```
-[ PASTE TIMETABLE OUTPUT HERE ]
+Final Timetable
+------------------------------------------
+  Slot 1:  Geography
+  Slot 2:  Chemistry, English
+  Slot 3:  History, Computer Science, Economics
+  Slot 4:  Biology, Statistics
+  Slot 5:  Mathematics, Physics
 ```
 
 **Look at `plots/experiment_1.png` and describe what you see (2–3 sentences).**  
 *Where does the biggest drop in clashes happen? Does the curve flatten out?*
 ```
-[ YOUR OBSERVATION ]
+The number of clashes decreases quickly during the initial iterations, showing that the algorithm rapidly improves the timetable. After that the curve flattens near 3 clashes, indicating slower improvements as the algorithm converges.
 ```
 
 ---
@@ -83,9 +89,9 @@ Save plots as `experiment_2a.png`, `experiment_2b.png`, `experiment_2c.png`.
 
 | cooling_rate | Final clashes | Iterations completed | Reached 0 clashes? |
 |-------------|---------------|----------------------|--------------------|
-| 0.80        |               |                      |                    |
-| 0.95        |               |                      |                    |
-| 0.995       |               |                      |                    |
+| 0.80        |             |                      |                    |
+| 0.95        |             |                      |                    |
+| 0.995       |            |                      |                    |
 
 **Compare the three plots. What do you notice about how fast vs slow cooling affects the result? (3–4 sentences)**  
 *Hint: Fast cooling = temperature drops quickly. Does it have time to explore well?*
